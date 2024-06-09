@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+
+    <title>Reservation</title>
+    <style>
+
+
+        body {
+            background-image: url("https://png.pngtree.com/background/20210717/original/pngtree-blank-background-brown-vintage-paper-picture-image_1421584.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: #111111;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f2f2f2;
+        }
+            /* Style for the submit button */
+      input[type="submit"] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          width: 100%;
+      }
+
+      /* Style for the submit button on hover */
+      input[type="submit"]:hover {
+          background-color: #45a049;
+      }
+
+      /* Style for the reset button */
+      input[type="reset"] {
+          background-color: #f44336;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          width: 100%;
+      }
+
+      /* Style for the reset button on hover */
+      input[type="reset"]:hover {
+          background-color: #da190b;
+      }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+
+   <script>
+    function confirmAdd() {
+      
+          message = "Your Info has beed added successfuly";
+          alert(message);
+
+  }
+   </script>
+
+
+</head>
+<body>
+    <ul>
+        <li><a href="{% url 'HomePage1' %}">Home page</a></li>
+        <li><a href="{% url 'signIn' %}">Sign in</a></li>
+        <li><a href="{% url 'Aboutas2' %}">About us</a></li>
+        <li><a href="{% url 'salon2' %}">Salon equipment</a></li>
+        <li><a href="{% url 'BeautyExperts' %}">Beauty experts</a></li>
+        <li><a href="{% url 'BookingPage' %}">Reservation</a></li>
+        <li><a href="{% url 'Contactus' %}">Contact us</a></li>
+    </ul>
+    <div class="container">
+        <center><h2>Reservation Form</h2></center>
+        <form action="{% url 'reserve' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="name">Name:</label>
+                {{ form.Name }}
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                {{ form.Email }}
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                {{ form.Password }}
+            </div>
+            <div>
+                <label for="product-number">Product Number:</label>
+                {{ form.Product_Nmae }}
+            </div>
+            <div>
+                <label for="reservation-date">Reservation Date:</label>
+                {{ form.resrv_Date }}
+            </div>
+            <div>
+                <label for="payment-method">Payment Via (Card/Chash):</label>
+                {{ form.pay_method }}
+            </div>
+            <input type="submit" value="Submit" onclick="confirmAdd()">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+</body>
+</html>

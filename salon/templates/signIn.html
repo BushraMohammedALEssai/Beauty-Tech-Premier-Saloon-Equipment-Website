@@ -1,0 +1,153 @@
+<html>
+ 
+<head>
+
+   <title>
+          sign in
+   </title>
+</head>
+<style>
+body {
+  background-image: url("https://png.pngtree.com/background/20210717/original/pngtree-blank-background-brown-vintage-paper-picture-image_1421584.jpg ");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+
+}
+
+
+ 
+</style>
+<style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+    }
+    
+    li {
+      float: left;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover {
+      background-color: #111111;
+    }
+    </style>
+    
+<body>
+    <ul>
+      <li><a href="{%url 'HomePage1'%}">Home page</a></li>
+      <li><a href="{%url 'signIn'%}">Sign in</a></li>
+      <li><a href="{%url 'Aboutas2'%}">About us</a></li>
+      <li><a href="{%url 'salon2'%}">Salon equipment</a></li>
+      <li><a href="{%url 'BeautyExperts'%}">Beauty experts</a></li>
+      <li><a href="{%url 'BookingPage'%}">Reservation</a></li>
+      <li><a href="{%url 'Contactus'%}">Contact us</a></li>
+     
+    
+    </ul>
+
+
+    <br><br>
+    <br>
+    <br>
+    <style>
+      /* Style for the form container */
+      .container {
+          width: 300px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          background-color: #f2f2f2;
+      }
+
+      /* Style for the form fields */
+      input[type="text"],
+      input[type="password"] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+      }
+
+      /* Style for the submit button */
+      input[type="submit"] {
+          background-color: #af904c;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          width: 100%;
+      }
+
+      /* Style for the submit button on hover */
+      input[type="submit"]:hover {
+          background-color: #806e27;
+      }
+  </style>
+
+
+  <script>
+    var attempts = 4
+    function loginCheck(event) {
+        event.preventDefault();
+
+        var UserName = document.getElementById("email").value;
+        var pass = document.getElementById("password").value;
+
+        if (UserName === "Bushra99277066@gmail.com" && pass === "54321") {
+            window.location.href = "{%url 'salon2'%}";
+            
+
+        } else {
+            attempts-- 
+            alert("Invalid UserName or Password, " + attempts + " attempts are lefts");
+            if (attempts == 0) {
+                
+                alert("You cannot login any more!");
+
+                document.getElementById("email").disabled = true;
+                document.getElementById("password").disabled = true;
+                document.getElementById("submit").disabled = true;
+                return false;
+            }
+        }
+    }
+</script>
+</head>
+<body>
+
+<div class="container">
+  <center><h2>Sign In</h2></center>
+  <form onsubmit="loginCheck(event)">
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="Enter your email">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+
+      <input type="submit" value="Sign In" onclick="loginCheck()" id="submit">
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
